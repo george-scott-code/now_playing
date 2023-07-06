@@ -3,7 +3,8 @@ param(
 )
 
 $programPath = "bin\Debug\net7.0-windows10.0.19041.0\now_playing.dll"
-$output = ""
+$EmojiIcon = [System.Convert]::toInt32("1F3A7", 16)
+$output = ([System.Char]::ConvertFromUtf32($EmojiIcon))
 
 $processInfo = New-Object System.Diagnostics.ProcessStartInfo
 $processInfo.FileName = "dotnet"
@@ -19,8 +20,16 @@ $process.Start() | Out-Null
 $process.WaitForExit()
 
 if ($process.ExitCode -eq 0) {
-    $output = $process.StandardOutput.ReadToEnd()
+    $output += $process.StandardOutput.ReadToEnd()
 }
+
+# &git add .
+# &git commit -m $message -m $output
+
+
+#  Write-Host "The Operation Completed Successfully " -NoNewline
+#  Write-Host -ForegroundColor Green ([System.Char]::ConvertFromUtf32($EmojiIcon))
 
 &git add .
 &git commit -m $message -m $output
+# Write-Output 🎧 $output
