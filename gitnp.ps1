@@ -22,7 +22,5 @@ if ($process.ExitCode -eq 0) {
     $output = $process.StandardOutput.ReadToEnd()
 }
 
-# Write-Output 🎧 $output
 &git add .
-
 &git commit -m $message -m $output
