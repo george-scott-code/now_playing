@@ -1,3 +1,7 @@
+param(
+    [string]$message
+)
+
 $programPath = "bin\Debug\net7.0-windows10.0.19041.0\now_playing.dll"
 $output = ""
 
@@ -21,4 +25,4 @@ if ($process.ExitCode -eq 0) {
 # Write-Output 🎧 $output
 &git add .
 
-&git commit -m "add powershell script that calls dotnet program" -m $output
+&git commit -m $message -m $output
