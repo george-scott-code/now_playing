@@ -23,5 +23,5 @@ if ($process.ExitCode -eq 0) {
     $output += $process.StandardOutput.ReadToEnd()
 }
 
-&git add .
-&git commit -m $message -m $output
+git add .
+git commit -m $message -m $output
