@@ -8,7 +8,7 @@ $output = ([System.Char]::ConvertFromUtf32($EmojiIcon)) + " "
 
 $processInfo = New-Object System.Diagnostics.ProcessStartInfo
 $processInfo.FileName = "dotnet"
-$processInfo.Arguments = """$programPath"""
+$processInfo.Arguments = $programPath
 $processInfo.RedirectStandardOutput = $true
 $processInfo.UseShellExecute = $false
 $processInfo.CreateNoWindow = $true
