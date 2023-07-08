@@ -3,8 +3,8 @@ param(
 )
 
 $programPath = "bin\Debug\net7.0-windows10.0.19041.0\now_playing.dll"
-$EmojiIcon = [System.Convert]::toInt32("1F3A7", 16)
-$output = ([System.Char]::ConvertFromUtf32($EmojiIcon)) + " "
+$emojiIcon = [System.Convert]::toInt32("1F3A7", 16)
+$output = ([System.Char]::ConvertFromUtf32($emojiIcon)) + " "
 
 $processInfo = New-Object System.Diagnostics.ProcessStartInfo
 $processInfo.FileName = "dotnet"
