@@ -10,7 +10,10 @@ internal class Program
         {
             var mediaControlSessionManager = await GetSystemMediaTransportControlsSessionManager();
             var mediaProperties = await GetMediaProperties(mediaControlSessionManager.GetCurrentSession());
-            Console.WriteLine("{0} | {1} | {2}", mediaProperties.Title, mediaProperties.Artist, mediaProperties.AlbumTitle);
+            if(mediaProperties is not null)
+            {
+                Console.WriteLine("{0} | {1} | {2}", mediaProperties.Title, mediaProperties.Artist, mediaProperties.AlbumTitle);
+            }
         }
         catch
         {
