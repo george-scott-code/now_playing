@@ -36,7 +36,8 @@ $process.Start() | Out-Null;
 $process.WaitForExit();
 
 if ($process.ExitCode -eq 0) {
-    $output = $process.StandardOutput.ReadToEnd()
+     # Read the output line by line
+     $output = $process.StandardOutput.ReadLine()
     if($output) {
         $trackDetail += $output;
         git commit -m $message -m $trackDetail;
