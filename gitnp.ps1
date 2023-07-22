@@ -8,6 +8,16 @@ if (-not $message) {
     return
 }
 
+# Check if dotnet and git commands are available
+if (-not (Get-Command "dotnet" -ErrorAction SilentlyContinue)) {
+    Write-Error "dotnet command not found. Please make sure it is installed and in your PATH."
+    return
+}
+if (-not (Get-Command "git" -ErrorAction SilentlyContinue)) {
+    Write-Error "git command not found. Please make sure it is installed and in your PATH."
+    return
+}
+
 $programPath = "bin\Debug\net7.0-windows10.0.19041.0\now_playing.dll";
 $emojiIcon = [System.Convert]::toInt32("1F3A7", 16);
 $trackDetail = ([System.Char]::ConvertFromUtf32($emojiIcon)) + " ";
