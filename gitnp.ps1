@@ -2,6 +2,12 @@ param(
     [string]$message
 )
 
+# Check if $message is provided
+if (-not $message) {
+    Write-Error "Please provide a commit message using -message parameter."
+    return
+}
+
 $programPath = "bin\Debug\net7.0-windows10.0.19041.0\now_playing.dll";
 $emojiIcon = [System.Convert]::toInt32("1F3A7", 16);
 $trackDetail = ([System.Char]::ConvertFromUtf32($emojiIcon)) + " ";
